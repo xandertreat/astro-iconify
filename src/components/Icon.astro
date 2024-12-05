@@ -1,0 +1,59 @@
+---
+// TypeScript types for passed Astro properties
+import type { HTMLAttributes } from 'astro/types';
+interface Props extends HTMLAttributes<"svg"> {
+  icon: string;
+  color?: string;
+  width?: number | 'auto' | 'unset' | 'none';
+  height?: number | 'auto' | 'unset' | 'none';
+  flip?: 'horizontal' | 'vertical' | 'horizontal,vertical';
+  rotate?: '90deg' | '180deg' | '270deg' | 1 | 2 | 3; // 1 = 90deg, 2 = 180deg, 3 = 270deg
+  download?: boolean;
+  box?: boolean;
+}
+
+// Build base API fetch
+const { icon, ...attrs } = Astro.props;
+const [iconCollection, ...rest] = icon.split(/[:\-]/);
+const collectionIcon = rest.join("-");
+
+const iconifyAPI = new URL(
+  `https://api.iconify.design/${iconCollection}/${collectionIcon}.svg`
+);
+
+// Add query parameters if needed
+Object.entries(Astro.props)
+  .filter(([k, v]) => v !== undefined && v !== null && k !as keyof HTMLAttributes<"svg">)
+  .forEach(([k, v]) => iconifyAPI.searchParams.append(k, String(v)));
+
+let iconifyIcon = "<path d='M12 2L2 7l10 5 10-5-10-5z'/>"; // fallback
+
+try {
+  const response = await fetch(iconifyAPI);
+  if (response.ok) {
+    const html = await response.text();
+    const htmlLines = html.split('><');
+    if (htmlLines.length > 1) {
+      const path = htmlLines[1];
+      iconifyIcon = `<${path}>`;
+    }
+  }
+  else {
+    console.error('Iconify API Request Error:', response.status, response.statusText);
+  }
+} catch (error) {
+  console.error('Iconify API Error:', error);
+}
+---
+
+<svg
+  {...attrs}
+  xmlns="http://www.w3.org/2000/svg"
+  aria-hidden="true"
+  role="img"
+  width="1em"
+  height="1em"
+  viewBox="0 0 24 24"
+>
+  <Fragment set:html={iconifyIcon} />
+</svg>
