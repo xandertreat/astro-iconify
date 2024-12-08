@@ -1,5 +1,5 @@
 {
-  "name": "astro-iconify",
+  "name": "@xtreat/astro-iconify",
   "version": "0.0.1",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
   "main": "index.js",
@@ -12,5 +12,8 @@
     "Iconify"
   ],
   "author": "Xander Treat",
-  "license": "Apache-2.0"
+  "license": "Apache-2.0",
+  "publishConfig": {
+    "access": "public"
+  }
 }
