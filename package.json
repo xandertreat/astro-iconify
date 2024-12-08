@@ -1,0 +1,16 @@
+{
+  "name": "astro-iconify",
+  "version": "0.0.1",
+  "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
+  "main": "index.js",
+  "keywords": [
+    "Astro",
+    "Static",
+    "TypeScript",
+    "TypeSafe",
+    "Icon",
+    "Iconify"
+  ],
+  "author": "Xander Treat",
+  "license": "Apache-2.0"
+}

@@ -1,6 +1,0 @@
-{
-  "name": "@xtreat/astro-iconify",
-  "version": "0.0.1",
-  "license": "Apache 2.0",
-  "exports": "./src/components/Icon.astro.ts"
-}

@@ -1,59 +1,81 @@
 ---
+// Written by Xander Treat
 // TypeScript types for passed Astro properties
-import type { HTMLAttributes } from 'astro/types';
+import type { HTMLAttributes } from "astro/types";
+
+type IconifySpecifierFormat = `${string}:${string}`;
 interface Props extends HTMLAttributes<"svg"> {
-  icon: string;
+  icon: IconifySpecifierFormat;
   color?: string;
-  width?: number | 'auto' | 'unset' | 'none';
-  height?: number | 'auto' | 'unset' | 'none';
-  flip?: 'horizontal' | 'vertical' | 'horizontal,vertical';
-  rotate?: '90deg' | '180deg' | '270deg' | 1 | 2 | 3; // 1 = 90deg, 2 = 180deg, 3 = 270deg
+  width?: number | "auto" | "unset" | "none";
+  height?: number | "auto" | "unset" | "none";
+  flip?: "horizontal" | "vertical" | "horizontal,vertical";
+  rotate?: "90deg" | "180deg" | "270deg" | 1 | 2 | 3; // 1 = 90deg, 2 = 180deg, 3 = 270deg
   download?: boolean;
   box?: boolean;
 }
 
 // Build base API fetch
 const { icon, ...attrs } = Astro.props;
-const [iconCollection, ...rest] = icon.split(/[:\-]/);
+const [iconCollection, ...rest] = icon.split(/[:]/);
 const collectionIcon = rest.join("-");
 
 const iconifyAPI = new URL(
-  `https://api.iconify.design/${iconCollection}/${collectionIcon}.svg`
+  `https://api.iconify.design/${iconCollection}/${collectionIcon}.svg`,
 );
 
 // Add query parameters if needed
 Object.entries(Astro.props)
-  .filter(([k, v]) => v !== undefined && v !== null && k !as keyof HTMLAttributes<"svg">)
+  .filter(
+    ([k, v]) =>
+      v !== undefined && v !== null && !(k as keyof HTMLAttributes<"svg">),
+  )
   .forEach(([k, v]) => iconifyAPI.searchParams.append(k, String(v)));
 
-let iconifyIcon = "<path d='M12 2L2 7l10 5 10-5-10-5z'/>"; // fallback
+// fallback
+let svgAttrs: any = {
+  xmlns: "http://www.w3.org/2000/svg",
+  role: "img",
+  width: "1em",
+  height: "1em",
+  viewBox: "0 0 24 24",
+};
+let iconifyIcon;
 
 try {
   const response = await fetch(iconifyAPI);
   if (response.ok) {
-    const html = await response.text();
-    const htmlLines = html.split('><');
-    if (htmlLines.length > 1) {
-      const path = htmlLines[1];
-      iconifyIcon = `<${path}>`;
-    }
-  }
-  else {
-    console.error('Iconify API Request Error:', response.status, response.statusText);
+    const html = await response.text(); // This is an HTML document response
+    let htmlLines = html.split("><").slice(0, -1); // Get SVG attributes + everything inside the SVG
+    const svgHtml = htmlLines.shift() || ""; // SVG attributes string
+
+    // Map SVG attributes for any given
+    Object.entries(svgAttrs).forEach(([k]) => {
+      let attrIdx = svgHtml.indexOf(`${k}="`);
+      attrIdx = svgHtml.indexOf(`"`, attrIdx) + 1;
+      if (attrIdx === -1) return;
+      const attrEndIdx = svgHtml.indexOf('"', attrIdx);
+      if (attrEndIdx === -1) return;
+      svgAttrs[k] = svgHtml.substring(attrIdx, attrEndIdx);
+    });
+    htmlLines = htmlLines.map((str) => `<${str}>`); // Format HTML elements properly
+    iconifyIcon = htmlLines.join("\n"); // Merge into one string
+  } else {
+    console.error(
+      "Iconify API Error:",
+      response.status,
+      response.statusText,
+    );
+    console.error("Request: " + iconifyAPI);
   }
 } catch (error) {
-  console.error('Iconify API Error:', error);
+  console.error("Iconify API Error:", error);
 }
+
+const iconProps = { ...svgAttrs, ...attrs };
 ---
 
 <svg
-  {...attrs}
-  xmlns="http://www.w3.org/2000/svg"
-  aria-hidden="true"
-  role="img"
-  width="1em"
-  height="1em"
-  viewBox="0 0 24 24"
->
-  <Fragment set:html={iconifyIcon} />
-</svg>
+  {...iconProps}
+  set:html={iconifyIcon}
+/>
