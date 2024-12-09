@@ -1,6 +1,9 @@
 # @xtreat/astro-iconify
 
-A type-safe, lightweight Astro component for seamless Iconify Icon integration in SVG format, providing flexible styling and transformation options.\
+A type-safe, lightweight Astro component for seamless Iconify Icon integration in SVG format, providing flexible styling and transformation options.
+
+[![Meta-Framework](https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE)](https://astro.build/)
+[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 [![npm version](https://badge.fury.io/js/@xtreat%2Fastro-iconify.svg)](https://badge.fury.io/js/@xtreat%2Fastro-iconify)
 [![npm downloads](https://img.shields.io/npm/dm/@xtreat/astro-iconify.svg)](https://www.npmjs.com/package/@xtreat/astro-iconify)
@@ -9,9 +12,6 @@ A type-safe, lightweight Astro component for seamless Iconify Icon integration i
 [![Maintenance](https://img.shields.io/maintenance/yes/2024.svg)](https://github.com/xandertreat/astro-iconify)
 [![GitHub stars](https://img.shields.io/github/stars/xandertreat/astro-iconify.svg)](https://github.com/xandertreat/astro-iconify/stargazers)\
 [![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
-
-[![Meta-Framework](https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE)](https://astro.build/)
-[![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 ## Installation
 
