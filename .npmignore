@@ -1,4 +1,9 @@
 node_modules
+CHANGELOG.md
+CONTRIBUTING.md
+LICENSE
+.github
+.astro
 .git
 .gitignore
 .env
