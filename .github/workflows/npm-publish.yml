@@ -1,4 +1,4 @@
-name: NPM
+name: NPM Registry Publish
 
 on:
   release:
