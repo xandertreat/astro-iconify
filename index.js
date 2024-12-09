@@ -1,2 +1,2 @@
-import Icon from './src/components/Icon.astro';
+import Icon from "./src/components/Icon.astro";
 module.exports = Icon;

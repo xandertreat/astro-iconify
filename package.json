@@ -1,17 +1,40 @@
 {
   "name": "@xtreat/astro-iconify",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
-  "main": "index.js",
+  "type": "module",
+  "exports": {
+    "Icon": "./src/components/Icon.astro"
+  },
+  "dependencies": {
+    "astro": ">2.0.0",
+    "typescript": ">4.9.5"
+  },
+  "devDependencies": {
+    "@astrojs/check": "^0.9.4",
+    "prettier": "^3.4.2",
+    "prettier-plugin-astro": "^0.14.1"
+  },
+  "scripts": {
+    "lint": "astro check",
+    "format": "prettier --write ."
+  },
   "keywords": [
-    "Astro",
-    "Static",
-    "TypeScript",
-    "TypeSafe",
-    "Icon",
-    "Iconify"
+    "astro",
+    "icons",
+    "iconify",
+    "svg",
+    "typescript"
   ],
   "author": "Xander Treat",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/xandertreat/astro-iconify"
+  },
+  "bugs": {
+    "url": "https://github.com/xandertreat/astro-iconify/issues"
+  },
+  "homepage": "https://github.com/xandertreat/astro-iconify#readme",
   "license": "Apache-2.0",
   "publishConfig": {
     "access": "public"
