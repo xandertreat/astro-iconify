@@ -1,23 +1,13 @@
 ---
 // Written by Xander Treat
-// TypeScript types for passed Astro properties
-import type { HTMLAttributes } from "astro/types";
-
-type IconifySpecifierFormat = `${string}:${string}`;
-interface Props extends HTMLAttributes<"svg"> {
-  icon: IconifySpecifierFormat;
-  color?: string;
-  width?: number | "auto" | "unset" | "none";
-  height?: number | "auto" | "unset" | "none";
-  flip?: "horizontal" | "vertical" | "horizontal,vertical";
-  rotate?: "90deg" | "180deg" | "270deg" | 1 | 2 | 3; // 1 = 90deg, 2 = 180deg, 3 = 270deg
-  download?: boolean;
-  box?: boolean;
-}
+// Types
+import { HTMLAttributes } from "astro/types";
+import type { AstroIconifyAttributes } from "../index.d.ts";
+interface Props extends AstroIconifyAttributes {};
 
 // Build base API fetch
 const { icon, ...attrs } = Astro.props;
-const [iconCollection, ...rest] = icon.split(/[:]/);
+const [iconCollection, ...rest] = icon.split(":");
 const collectionIcon = rest.join("-");
 
 const iconifyAPI = new URL(
