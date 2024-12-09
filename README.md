@@ -1,6 +1,6 @@
 # @xtreat/astro-iconify
 
-A type-safe, lightweight Astro component for seamless Iconify Icon integration in SVG format, providing flexible styling and transformation options.
+A type-safe, lightweight Astro component for seamless Iconify Icon integration in SVG format, providing flexible styling and transformation options. Created by Xander Treat.
 
 [![Meta-Framework](https://img.shields.io/badge/Astro-0C1222?style=for-the-badge&logo=astro&logoColor=FDFDFE)](https://astro.build/)
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
