@@ -1,1 +1,2 @@
-export { default as Icon } from "./components/Icon.astro";
+import Icon from './components/Icon.astro';
+export default Icon;

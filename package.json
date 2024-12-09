@@ -20,8 +20,7 @@
         "./dist/index.d.ts"
       ],
       "default": "./dist/index.js"
-    },
-    "./Icon": "./src/components/Icon.astro"
+    }
   },
   "files": [
     "dist"
