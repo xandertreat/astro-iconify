@@ -1,23 +1,24 @@
 {
   "author": "Xander Treat",
   "name": "@xtreat/astro-iconify",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
   "readme": "README.md",
   "license": "Apache-2.0",
   "repository": {
     "type": "git",
-    "url": "https://github.com/xandertreat/astro-iconify"
+    "url": "https://github.com/xandertreat/astro-iconify.git"
   },
   "bugs": {
     "url": "https://github.com/xandertreat/astro-iconify/issues"
   },
-  "homepage": "https://github.com/xandertreat/astro-iconify#readme",
+  "homepage": "https://github.com/xandertreat/astro-iconify?tab=readme-ov-file#readme",
   "type": "module",
   "exports": {
-    "Icon": "./src/Icon.astro"
+    "Icon": "./src/components/static/Icon.astro"
   },
   "dependencies": {
+    "@types/node": "^22.10.1",
     "astro": ">2.0.0",
     "typescript": ">4.9.5"
   },
@@ -36,9 +37,6 @@
     "iconify",
     "svg",
     "typescript"
-  ],
-  "files": [
-    "LICENSE"
   ],
   "publishConfig": {
     "access": "public"
