@@ -1,7 +1,7 @@
 {
   "author": "Xander Treat",
   "name": "@xtreat/astro-iconify",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
   "readme": "README.md",
   "license": "Apache-2.0",
@@ -15,8 +15,17 @@
   "homepage": "https://github.com/xandertreat/astro-iconify?tab=readme-ov-file#readme",
   "type": "module",
   "exports": {
-    "Icon": "./src/components/static/Icon.astro"
+    ".": {
+      "types": [
+        "./dist/index.d.ts"
+      ],
+      "default": "./dist/index.js"
+    },
+    "./Icon": "./src/components/Icon.astro"
   },
+  "files": [
+    "dist"
+  ],
   "dependencies": {
     "@types/node": "^22.10.1",
     "astro": ">2.0.0",
@@ -33,6 +42,8 @@
   },
   "keywords": [
     "astro",
+    "component",
+    "astro-component",
     "icons",
     "iconify",
     "svg",

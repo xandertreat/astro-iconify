@@ -52,15 +52,19 @@ Icons are specified using the Iconify Icon syntax:
 
 ### Example:
 
-```Astro
----
-import Icon from "@xtreat/astro-iconify";
----
+Importing the component:
 
+```Astro
+import Icon from "@xtreat/astro-iconify";
+```
+
+Using it:
+
+```Astro
 <Icon icon="ic:baseline-all-inclusive" />
 ```
 
-It supports any HTML attributes a SVG element can have, excluding modifiers passed to Iconify:
+It supports any HTML attributes a SVG element can have:
 
 ```Astro
 ---
