@@ -162,8 +162,8 @@ npm install
 
 ## Links
 
-[npm Package](https://www.npmjs.com/package/@xtreat/astro-iconify)\
-[GitHub Repository](https://github.com/xandertreat/astro-iconify)
+[![NPM](https://img.shields.io/badge/NPM-%23CB3837.svg?style=for-the-badge&logo=npm&logoColor=white)](https://www.npmjs.com/package/@xtreat/astro-iconify)
+[![GitHub](https://img.shields.io/badge/github-%23121011.svg?style=for-the-badge&logo=github&logoColor=white)](https://github.com/xandertreat/astro-iconify)
 
 ## License
 
