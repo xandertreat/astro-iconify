@@ -1,16 +1,14 @@
 ---
 // Written by Xander Treat
 // Types
-import type { HTMLAttributes } from "astro/types";
-import type { AstroIconifyAttributes } from "../index.d.ts";
-interface Props extends AstroIconifyAttributes {};
+import type { IconifyAttributes, IconifyAttributesKeys } from "../../types";
+interface Props extends IconifyAttributes {};
 
 // Build base API fetch
 const { icon, ...attrs } = Astro.props;
-const [iconCollection, ...rest] = icon.split(":");
-const collectionIcon = rest.join("-");
+const [iconCollection, collectionIcon] = icon.split(":");
 
-const iconifyAPI = new URL(
+const iconifyApiRequest = new URL(
   `https://api.iconify.design/${iconCollection}/${collectionIcon}.svg`,
 );
 
@@ -18,14 +16,13 @@ const iconifyAPI = new URL(
 Object.entries(Astro.props)
   .filter(
     ([k, v]) =>
-      v !== undefined && v !== null && !(k as keyof HTMLAttributes<"svg">),
+      v !== undefined && v !== null && k as keyof IconifyAttributesKeys,
   )
-  .forEach(([k, v]) => iconifyAPI.searchParams.append(k, String(v)));
+  .forEach(([k, v]) => iconifyApiRequest.searchParams.append(k, String(v)));
 
 // fallback
 let svgAttrs: any = {
   xmlns: "http://www.w3.org/2000/svg",
-  role: "img",
   width: "1em",
   height: "1em",
   viewBox: "0 0 24 24",
@@ -33,7 +30,7 @@ let svgAttrs: any = {
 let iconifyIcon : string = "";
 
 try {
-  const response = await fetch(iconifyAPI);
+  const response = await fetch(iconifyApiRequest);
   if (response.ok) {
     const html = await response.text(); // This is an HTML document response
     let htmlLines = html.split("><").slice(0, -1); // Get SVG attributes + everything inside the SVG
@@ -56,7 +53,7 @@ try {
       response.status,
       response.statusText,
     );
-    console.error("Request: " + iconifyAPI);
+    console.error("Request: " + iconifyApiRequest);
   }
 } catch (error) {
   console.error("Iconify API Error:", error);

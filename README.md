@@ -83,7 +83,7 @@ The component supports the following props:
 | `icon`     | `IconifySpecifierFormat`<br>                                   | ✔️       | Specifies collection and icon being used                         |
 | `color`    | `string`                                                       | ❌       | Color of the icon.<br> Results in hardcoded palette              |
 | `width`    | `number` <br> `"auto"` <br> `"unset"` <br> `"none"`            | ❌       | Width of icon.<br> Serves as `height` if `height` is unspecified |
-| `height`   | `number` <br> `"auto"` <br> `"unset"` <br> `"none"`          | ❌       | Height of icon.<br> Serves as `width` if `width` is unspecified  |
+| `height`   | `number` <br> `"auto"` <br> `"unset"` <br> `"none"`            | ❌       | Height of icon.<br> Serves as `width` if `width` is unspecified  |
 | `flip`     | `"horizontal"` <br> `"vertical"` <br> `"horizontal,vertical"`  | ❌       | Flipping icon in either axis or both                             |
 | `rotate`   | `"90deg"` or `1` <br> `"180deg"` or `2` <br> `"270deg"` or `3` | ❌       | Rotation of icon                                                 |
 | `download` | `boolean`                                                      | ❌       | Whether or not browser should be forced to download file         |

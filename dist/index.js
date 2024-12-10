@@ -1,5 +1,5 @@
 // Imports
-import Icon from './components/Icon.astro';
+import Icon from "../src/components/ts/Icon.astro";
 
 // Exports
 export default Icon;
