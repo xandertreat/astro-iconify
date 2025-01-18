@@ -14,7 +14,7 @@ jobs:
           node-version: 20
       - run: npm ci
 
-  publish-npm:
+  npm-publish:
     needs: build
     runs-on: ubuntu-latest
     steps:
