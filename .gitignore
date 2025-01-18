@@ -129,3 +129,5 @@ out
 .yarn/install-state.gz
 .pnp.*
 .astro
+
+test-example

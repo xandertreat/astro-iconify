@@ -2,6 +2,7 @@
 
 [![npm package](https://badge.fury.io/js/@xtreat%2Fastro-iconify.svg)](https://www.npmjs.com/package/@xtreat/astro-iconify)
 [![Maintenance](https://img.shields.io/maintenance/yes/2024.svg)](https://github.com/xandertreat/astro-iconify)
+[![Tests](https://github.com/xandertreat/astro-iconify/actions/workflows/jest/badge.svg)](https://github.com/xandertreat/astro-iconify/actions/workflows/jest)
 [![GitHub issues](https://img.shields.io/github/issues/xandertreat/astro-iconify.svg)](https://github.com/xandertreat/astro-iconify/issues)\
 [![downloads](https://img.shields.io/npm/dm/@xtreat/astro-iconify.svg)](https://www.npmjs.com/package/@xtreat/astro-iconify)
 ![visitors](https://visitor-badge.laobi.icu/badge?page_id=xandertreat.astro-iconify)\
@@ -12,8 +13,6 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=for-the-badge&logo=typescript&logoColor=white)](https://www.typescriptlang.org/)
 
 A type-safe, lightweight Astro component for seamless Iconify Icon integration in SVG format, providing flexible styling and transformation options. Created by Xander Treat.
-
-
 
 ## Installation
 
@@ -52,7 +51,7 @@ deno install npm:@xtreat/astro-iconify
 Icons are specified using the Iconify Icon syntax:
 `collection-name:icon-name`
 
-### Example:
+### Example
 
 Importing the component:
 
@@ -94,9 +93,11 @@ The component supports the following props:
 ## Type Reference
 
 If needed, types can be used and imported via `@xtreat/astro-iconify/types` :
+
 ```typescript
 import { IconifyAttributes } from '@xtreat/astro-iconify/types'
 ```
+
 A list of all provided types and their descriptions below:
 
 ### `IconifyAttributes`

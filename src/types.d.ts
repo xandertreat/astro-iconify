@@ -2,7 +2,7 @@
 import type { HTMLAttributes } from "astro/types";
 
 // Type Definitions
-export type IconifySpecifierFormat = `${string}:${string}`;
+export type IconifySpecifierFormat = `${Lowercase<string>}:${Lowercase<string>}`;
 export type IconifySizeFormat = number | "auto" | "unset" | "none";
 export type IconifyFlipFormat =
   | "horizontal"
@@ -10,7 +10,7 @@ export type IconifyFlipFormat =
   | "horizontal,vertical";
 export type IconifyRotateFormat = "90deg" | 1 | "180deg" | 2 | "270deg" | 3; // "90deg" = 1, etc.
 export interface IconifyAttributes extends HTMLAttributes<"svg"> {
-  icon: IconifySpecifierFormat;
+  icon: IconifySpecifierFormat | string;
   color?: string;
   width?: IconifySizeFormat;
   height?: IconifySizeFormat;

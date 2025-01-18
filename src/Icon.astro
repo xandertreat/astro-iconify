@@ -1,13 +1,16 @@
 ---
 // Written by Xander Treat
 // Types
-import type { IconifyAttributes, IconifyAttributesKeys } from "../../types";
-interface Props extends IconifyAttributes {};
+import type { IconifyAttributes, IconifyAttributesKeys } from "~/types";
+import validateIconProp from "~/guard";
+interface Props extends IconifyAttributes{};
 
-// Build base API fetch
+// Construct props / validate
 const { icon, ...attrs } = Astro.props;
+validateIconProp(icon);
 const [iconCollection, collectionIcon] = icon.split(":");
 
+// Build API fetch
 const iconifyApiRequest = new URL(
   `https://api.iconify.design/${iconCollection}/${collectionIcon}.svg`,
 );

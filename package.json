@@ -1,7 +1,7 @@
 {
   "author": "Xander Treat",
   "name": "@xtreat/astro-iconify",
-  "version": "1.1.5",
+  "version": "1.2.0",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
   "readme": "README.md",
   "license": "Apache-2.0",
@@ -24,18 +24,22 @@
     }
   },
   "dependencies": {
-    "@types/node": "^22.10.1",
-    "astro": ">2.0.0",
-    "typescript": ">4.9.5"
+    "astro": ">2.0.0"
   },
   "devDependencies": {
     "@astrojs/check": "^0.9.4",
+    "@types/node": "^22.10.7",
     "prettier": "^3.4.2",
-    "prettier-plugin-astro": "^0.14.1"
+    "prettier-plugin-astro": "^0.14.1",
+    "typescript": "^5.7.3",
+    "vitest": "^3.0.2"
   },
   "scripts": {
+    "test": "vitest",
+    "test:watch": "vitest --watch",
+    "test:coverage": "vitest --coverage",
     "lint": "astro check",
-    "format": "prettier --write ."
+    "fmt": "prettier --write ."
   },
   "keywords": [
     "astro",
