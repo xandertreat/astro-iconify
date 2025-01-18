@@ -19,7 +19,7 @@ jobs:
           node-version: 20
       - run: npm ci
 
-  npm-tasks:
+  scripts:
     needs: build
     runs-on: ubuntu-latest
     steps:
@@ -31,7 +31,7 @@ jobs:
       - run: npm ci
 
       - name: Run prettier
-        run: npm run format
+        run: npm run fmt
 
       - name: Run linter
         run: npm run lint --fix
