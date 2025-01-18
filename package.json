@@ -1,7 +1,7 @@
 {
   "author": "Xander Treat",
   "name": "@xtreat/astro-iconify",
-  "version": "1.2.0",
+  "version": "1.2.5",
   "description": "A type-safe simple and easy-to-modify Iconify Icon component for Astro",
   "readme": "README.md",
   "license": "Apache-2.0",
