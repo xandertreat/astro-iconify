@@ -89,3 +89,7 @@ logs
 # Astro related
 .astro
 astro-example
+
+# Vitest
+tests
+vitest.config.ts
