@@ -1,7 +1,6 @@
 # @xtreat/astro-iconify
 
 [![npm package](https://badge.fury.io/js/@xtreat%2Fastro-iconify.svg)](https://www.npmjs.com/package/@xtreat/astro-iconify)
-[![Maintenance](https://img.shields.io/maintenance/yes/2024.svg)](https://github.com/xandertreat/astro-iconify)
 [![Tests](https://github.com/xandertreat/astro-iconify/actions/workflows/tests.yml/badge.svg?event=push)](https://github.com/xandertreat/astro-iconify/actions/workflows/tests)
 [![GitHub issues](https://img.shields.io/github/issues/xandertreat/astro-iconify.svg)](https://github.com/xandertreat/astro-iconify/issues)\
 [![downloads](https://img.shields.io/npm/dm/@xtreat/astro-iconify.svg)](https://www.npmjs.com/package/@xtreat/astro-iconify)
