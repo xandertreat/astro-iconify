@@ -36,8 +36,6 @@
   },
   "scripts": {
     "test": "vitest",
-    "test:watch": "vitest --watch",
-    "test:coverage": "vitest --coverage",
     "lint": "astro check",
     "fmt": "prettier --write ."
   },

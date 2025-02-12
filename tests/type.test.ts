@@ -1,5 +1,5 @@
 import { describe, test, expect } from 'vitest';
-import validateIconProp from '../src/guard';
+import validateIconSpecifier from '../src/guard';
 
 describe('validateIconProp', () => {
   // Invalid collections + icons
@@ -26,7 +26,7 @@ describe('validateIconProp', () => {
     ['a-:b-', 'Invalid Iconify icon specifier.'], // Dash at the end
   ])('should throw for invalid icon specifier %p', (prop, expectedMessage) => {
     expect(() => {
-      validateIconProp(prop);
+      validateIconSpecifier(prop);
     }).toThrowError(expectedMessage);
   });
 
@@ -39,7 +39,7 @@ describe('validateIconProp', () => {
     [true, 'Invalid Iconify icon specifier.'], // Boolean
   ])('should throw for non-string input %p', (prop, expectedMessage) => {
     expect(() => {
-      validateIconProp(prop);
+      validateIconSpecifier(prop);
     }).toThrowError(expectedMessage);
   });
 
@@ -57,7 +57,7 @@ describe('validateIconProp', () => {
     'a1b2c3:d4e5f6', // More complex with numbers
   ])('should not throw for valid icon specifier %p', (prop) => {
     expect(() => {
-      validateIconProp(prop);
+      validateIconSpecifier(prop);
     }).not.toThrow();
   });
 });
