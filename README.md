@@ -45,6 +45,14 @@ bun install @xtreat/astro-iconify
 deno install npm:@xtreat/astro-iconify
 ```
 
+Deno also requires this in your astro configuration for pure deno set-ups:
+```js
+  vite: {
+    ssr: {
+      noExternal: ["@xtreat/astro-iconify"],
+    },
+```
+
 ## Usage
 
 Icons are specified using the Iconify Icon syntax:
